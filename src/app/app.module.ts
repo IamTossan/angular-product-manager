@@ -4,6 +4,12 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { ProductManagerService } from './services/product-manager.service';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {
+  MatButtonModule,
+  MatListModule
+} from '@angular/material';
+
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './views/dashboard/dashboard.component';
 
@@ -15,7 +21,10 @@ import { DashboardComponent } from './views/dashboard/dashboard.component';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatListModule,
   ],
   providers: [ProductManagerService],
   bootstrap: [AppComponent]

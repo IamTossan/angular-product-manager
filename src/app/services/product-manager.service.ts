@@ -20,8 +20,8 @@ export class ProductManagerService {
     return this.http.get<Product[]>(productsUrl);
   }
 
-  createProduct(): Observable<Product> {
-    return this.http.post<Product>(productUrl, httpOptions);
+  createProduct(product: Product): Observable<Product> {
+    return this.http.post<Product>(productUrl, product, httpOptions);
   }
 
   getProduct(id: number): Observable<Product> {
@@ -32,8 +32,8 @@ export class ProductManagerService {
     return this.http.delete<Product>(`${productUrl}/${id}`, httpOptions);
   }
 
-  updateProduct(id: number): Observable<Product> {
-    return this.http.put<Product>(`${productUrl}/${id}`, httpOptions);
+  updateProduct(product: Product): Observable<Product> {
+    return this.http.put<Product>(`${productUrl}/${product.id}`, product, httpOptions);
   }
 
 }
