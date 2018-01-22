@@ -1,8 +1,27 @@
 <h1>dashboard</h1>
 
-<mat-nav-list>
-  <a mat-list-item href="#" *ngFor="let product of products">{{ product.id }}: {{ product.name }}</a>
-</mat-nav-list>
+<mat-accordion>
+  <mat-expansion-panel *ngFor="let product of products">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{ product.price }} &euro;
+      </mat-panel-title>
+      <mat-panel-description>
+        {{ product.name }}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+  
+    <app-product-editor
+      [product]="product"
+      (save)="updateProduct(product)"
+      (delete)="deleteProduct(product.id)"
+    ></app-product-editor>
+  
+  </mat-expansion-panel>
+</mat-accordion>
 
-<button mat-button (click)="addProduct()">Add a merguez</button>
+<app-product-creator
+  (create)="createProduct($event)"
+></app-product-creator>
+
 

@@ -11,12 +11,12 @@ import { Product } from '../../constants/product';
 })
 export class DashboardComponent implements OnInit {
 
-  products: Product[]
+  products: Product[];
 
   constructor(private productManager: ProductManagerService) { }
 
   ngOnInit() {
-    this.getProducts()
+    this.getProducts();
   }
 
   getProducts() {
@@ -24,13 +24,19 @@ export class DashboardComponent implements OnInit {
       .subscribe(products => this.products = products);
   }
 
-  addProduct() {
-    const product: Product = {
-      name: 'merguez',
-      price: 7.0,
-    }
+  createProduct(product: Product) {
     this.productManager.createProduct(product)
-      .subscribe(product => this.products.push(product))
+      .subscribe(p => this.products.push(p));
+  }
+
+  updateProduct(product: Product) {
+    this.productManager.updateProduct(product)
+      .subscribe(() => this.getProducts());
+  }
+
+  deleteProduct(id: number) {
+    this.productManager.deleteProduct(id)
+      .subscribe(() => this.getProducts());
   }
 
 }
