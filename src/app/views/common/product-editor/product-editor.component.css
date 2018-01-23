@@ -1,0 +1,35 @@
+.root {
+    width: 100%;
+    margin: 8px auto;
+
+}
+
+.content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+div.card-content {
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+mat-form-field {
+    width: 100%;
+    max-width: 250px;
+}
+
+.btn-container {
+    align-self: flex-end;
+}
+
+.btn-container button {
+    margin-right: 16px;
+}

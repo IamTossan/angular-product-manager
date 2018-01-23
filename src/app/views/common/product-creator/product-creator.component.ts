@@ -26,7 +26,7 @@ export class ProductCreatorComponent implements OnInit {
     this.isCreating = true;
   }
 
-  handleClickSave() {
+  handleClickCreate() {
     if (!this.newProduct.name.trim().length || !this.newProduct.price) {
       return;
     }

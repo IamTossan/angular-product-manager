@@ -1,15 +1,28 @@
-<button *ngIf="!isCreating" mat-button (click)="handleClickAdd()">Create new product</button>
-<mat-card *ngIf="isCreating">
-  <mat-form-field>
-    <input matInput placeholder="Product name" type="text" [(ngModel)]="newProduct.name">
-  </mat-form-field>
-  
-  <mat-form-field>
-    <input matInput placeholder="Product price" type="number" [(ngModel)]="newProduct.price">
-  </mat-form-field>
-  
-  
-  <button mat-button (click)="handleClickSave()">Save</button>
-  <button mat-button (click)="handleClickCancel()">Cancel</button>
+<div class="root">
+  <button
+    *ngIf="!isCreating"
+    mat-raised-button
+    color="primary"
+    (click)="handleClickAdd()"
+  >
+    Create new product
+  </button>
 
-</mat-card>
+  <mat-card *ngIf="isCreating">
+    <h2>New product</h2>
+    <div class="card-content">
+      <mat-form-field>
+        <input matInput placeholder="Product name" type="text" [(ngModel)]="newProduct.name">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Product price" type="number" [(ngModel)]="newProduct.price">
+      </mat-form-field>
+    </div>
+
+    <div class="btn-container">
+      <button mat-raised-button color="primary" (click)="handleClickCreate()">Create</button>
+      <button mat-button (click)="handleClickCancel()">Cancel</button>
+    </div>
+  </mat-card>
+</div>

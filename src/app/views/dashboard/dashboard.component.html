@@ -1,27 +1,36 @@
 <h1>dashboard</h1>
 
-<mat-accordion>
-  <mat-expansion-panel *ngFor="let product of products">
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        {{ product.price }} &euro;
-      </mat-panel-title>
-      <mat-panel-description>
-        {{ product.name }}
-      </mat-panel-description>
-    </mat-expansion-panel-header>
-  
-    <app-product-editor
-      [product]="product"
-      (save)="updateProduct(product)"
-      (delete)="deleteProduct(product.id)"
-    ></app-product-editor>
-  
-  </mat-expansion-panel>
-</mat-accordion>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+      <mat-accordion>
+        <mat-expansion-panel *ngFor="let product of products">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{ product.price }} &euro;
+            </mat-panel-title>
+            <mat-panel-description>
+              {{ product.name }}
+            </mat-panel-description>
+          </mat-expansion-panel-header>
 
-<app-product-creator
-  (create)="createProduct($event)"
-></app-product-creator>
+          <app-product-editor
+            [product]="product"
+            (save)="updateProduct(product)"
+            (delete)="deleteProduct(product.id)"
+          ></app-product-editor>
 
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+  </div>
 
+  <div class="row">
+    <div class="col-xs-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+      <app-product-creator
+        (create)="createProduct($event)"
+      ></app-product-creator>
+    </div>
+  </div>
+
+</div>

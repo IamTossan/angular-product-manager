@@ -1,11 +1,19 @@
-<mat-form-field>
-  <input matInput placeholder="Product name" type="text" [(ngModel)]="product.name">
-</mat-form-field>
+<div class="root">
+  <div class="content">
+    <div class="card-content">
+      <mat-form-field>
+        <input matInput placeholder="Product name" type="text" [(ngModel)]="product.name">
+      </mat-form-field>
 
-<mat-form-field>
-  <input matInput placeholder="Product price" type="number" [(ngModel)]="product.price">
-</mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Product price" type="number" [(ngModel)]="product.price">
+      </mat-form-field>
+    </div>
 
+    <div class="btn-container">
+      <button mat-raised-button color="primary" (click)="handleClickSave()">Save</button>
+      <button mat-button (click)="handleClickDelete()">Delete</button>
+    </div>
+  </div>
 
-<button mat-button (click)="handleClickSave()">Save</button>
-<button mat-button (click)="handleClickDelete()">Delete {{product.name}}</button>
+</div>
